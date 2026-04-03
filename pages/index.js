@@ -30,11 +30,27 @@ export const App = () => {
       setCityInput("");
     };
     getData();
-    const interval = setInterval(() => {
-      getData();
-    }, 3600000);
-    return () => clearInterval(interval);
+    //ajout d'un systeme de rafraichissement des données toutes les heures piles
+    let intervalId;
+    const now = new Date();  
+    const minLeft = 60 - now.getMinutes();
+    const secLeft = now.getSeconds();
+    const msLeft = (minLeft * 60000) - (secLeft * 1000);
+    function refreshHour() {
+      getData();       
+      intervalId = setInterval(function () {
+        getData();
+      }, 3600000);
+    }
+    const timeoutId = setTimeout(refreshHour, msLeft);
+    return function clearTimers() {
+      clearTimeout(timeoutId);
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
   }, [triggerFetch]);
+  
 
   const changeSystem = () =>
     unitSystem == "metric"
@@ -54,8 +70,9 @@ export const App = () => {
       <ContentBox>
         <Header>
           <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
-          
+          {/* partie barre de recherche supprimée */}
         </Header>
+        
         <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
         <UnitSwitch onClick={changeSystem} unitSystem={unitSystem} />
       </ContentBox>

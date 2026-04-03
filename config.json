@@ -1,6 +1,6 @@
-{
-  "cityName": "Nantes",
-  "countryCode": "FR",
+{  
+  "city": "Nantes",
+  "country": "FR",
   "latitude": 47.2172,
   "longitude": -1.5534
 }
