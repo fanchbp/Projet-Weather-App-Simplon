@@ -6,19 +6,17 @@ Check the current weather on any city on the planet. Switch between metric and i
 
 ## Features
 
-1. User's ability to search cities
+1. Current local time and date
 
-2. Current local time and date
+2. Temperatures and humidity
 
-3. Temperatures and humidity
+3. Wind speed and direction
 
-4. Wind speed and direction
+4. Sunrise and sunset times
 
-5. Sunrise and sunset times
+5. Metric vs Imperial system
 
-6. Metric vs Imperial system
-
-7. Error handling and loading info
+6. Error handling and loading info
 
 ## Installation
 
@@ -28,7 +26,7 @@ Check the current weather on any city on the planet. Switch between metric and i
 
 3. `npm install`
 
-3.5 'export NODE_OPTIONS=--openssl-legacy-provider' if needed
+3. `export NODE_OPTIONS=--openssl-legacy-provider' if needed`
 
 4. `npm run dev`
 
